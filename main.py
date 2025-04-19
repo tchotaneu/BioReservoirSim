@@ -65,7 +65,7 @@ fig = px.scatter_3d(
     z="response",
     color="label",
     color_continuous_scale="RdBu",
-    title="Bacterial Response - Interactive 3D View",
+    title="Bacterial Response - Interactive 3D_Visualisation",
     labels={"nutrient_A": "Nutrient A", "nutrient_B": "Nutrient B", "response": "Simulated Response"}
 )
 
