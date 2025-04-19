@@ -1,40 +1,81 @@
-# 🧬 BioReservoirSim – Simulateur de biosenseur bactérien
+# BioReservoirSim – Simulateur de biosenseur bactérien
 
-Bienvenue sur mon projet de simulation d’un système de *Reservoir Computing* biologique, inspiré de l'article _[Reservoir Computing with Bacteria](https://www.biorxiv.org/content/10.1101/2024.09.12.612674v1).  
-
-Ce mini projet a pour but de **modéliser la réponse de bactéries (ex. E. coli) à des profils nutritionnels**, et d’utiliser ces réponses simulées pour effectuer des tâches de **classification** avec des modèles d’intelligence artificielle.
-
----
-
-##  Objectifs
-
-- Reproduire, en Python, le principe du *Bacterial Reservoir Computing*.
-- Simuler la **réponse phénotypique (croissance)** à des milieux de culture définis par 3 nutriments.
-- Entraîner un modèle IA à partir de ces réponses simulées (ex : Random Forest).
-- Visualiser le comportement du système avec des **graphiques 2D et 3D** (dont une version interactive).
+Ce projet propose une **simulation d’un système de Reservoir Computing bactérien** inspiré de l’article [_Reservoir Computing with Bacteria_ (2024)](https://www.biorxiv.org/content/10.1101/2024.09.12.612674v1).  
+L’idée est de modéliser **la réponse phénotypique d’une bactérie à des environnements nutritionnels** et d'utiliser cette réponse comme source de calcul pour des tâches de classification.
 
 ---
 
-## Visualisation interactive
+##  Visualisation interactive
 
-Explorez la simulation de croissance bactérienne en 3D directement dans votre navigateur :
+ Explorez la réponse simulée en 3D selon les nutriments A et B :
 
- **[Cliquez ici pour voir le graphe interactif](https://tchotaneu.github.io/BioReservoirSim/interactive_3D_response.html)**
-
-Vous pouvez faire pivoter, zoomer, et survoler les points pour obtenir des informations (nutriments, réponse, classe...).
+ [Voir la simulation interactive](https://tchotaneu.github.io/BioReservoirSim/interactive_3D_response.html)
 
 ---
 
-##  Structure du projet
-BioReservoirSim/ 
-├── data_generator.py # Génération des profils nutritionnels et réponses simulées 
-├── model.py # Entraînement d’un modèle de classification 
-├── main.py # Script principal : simulation + visualisation 
-├── interactive_3d_response.html # Visualisation interactive en 3D avec Plotly
-├── requirements.txt # Dépendances Python ├── README.md # Documentation du projet 
+## Structure du projet
 
-##  Dépendances
+```
+BioReservoirSim/
+├── data_generator.py            # Génération des profils nutritionnels et réponses simulées
+├── model.py                     # Entraînement d’un modèle de classification
+├── main.py                      # Script principal : simulation + visualisation
+├── interactive_3D_response.html # Visualisation interactive 3D avec Plotly
+├── requirements.txt             # Dépendances Python
+├── README.md                    # Documentation du projet
+```
 
+---
+
+## Méthodologie
+
+1. **Génération de données**  
+   - 3 nutriments aléatoires (A, B, C) → combinaison d'effets (linéaire, quadratique, sinus).
+   - Simulation d’une **réponse bactérienne** (croissance) avec bruit aléatoire.
+
+2. **Classification**  
+   - Création d’un label binaire : `1` (réponse forte), `0` (réponse faible).
+   - Entraînement d’un modèle **Random Forest** pour classer les réponses à partir des nutriments.
+
+3. **Visualisation**
+   - Graphe 2D (matplotlib) et 3D (matplotlib 3D).
+   - Version **interactive en 3D** avec Plotly pour une exploration enrichie.
+
+---
+
+##  Lancer le projet
+
+### 1. Installer les dépendances
 ```bash
-pip install numpy pandas matplotlib scikit-learn plotly
+pip install -r requirements.txt
+```
 
+### 2. Exécuter le script principal
+```bash
+python main.py
+```
+
+---
+
+##  Bibliothèques utilisées
+
+- `numpy`, `pandas`
+- `matplotlib`, `plotly`
+- `scikit-learn` (Random Forest)
+- `mpl_toolkits.mplot3d` (pour le 3D statique)
+
+---
+
+##  Auteur
+
+**Giresse Tchotaneu**  
+Étudiant passionné par la bioinformatique, l’intelligence artificielle appliquée au vivant, et les systèmes hybrides vivants-computationnels.
+
+Contact : [giressetchotaneu@gmail.com]  
+GitHub : [https://github.com/tchotaneu](https://github.com/tchotaneu)
+
+---
+
+##  Licence
+
+Projet libre sous licence MIT.
