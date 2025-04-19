@@ -19,7 +19,7 @@ Ce mini projet a pour but de **modéliser la réponse de bactéries (ex. E. coli
 
 Explorez la simulation de croissance bactérienne en 3D directement dans votre navigateur :
 
- **[Cliquez ici pour voir le graphe interactif](./interactive_3D_response.html)**
+ **[Cliquez ici pour voir le graphe interactif](https://tchotaneu.github.io/BioReservoirSim/interactive_3D_response.html)**
 
 Vous pouvez faire pivoter, zoomer, et survoler les points pour obtenir des informations (nutriments, réponse, classe...).
 
