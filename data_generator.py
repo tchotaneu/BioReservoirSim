@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
-from simulate import bacterial_response  # Importation de la fonction centrale
+from simulate import bacterial_response  
+import os
+
 
 def generate_data(n_samples=200, noise=0.1):
     """
@@ -29,5 +31,24 @@ def generate_data(n_samples=200, noise=0.1):
     df = pd.DataFrame(nutrients, columns=["nutrient_A", "nutrient_B", "nutrient_C"])
     df["response"] = response
     df["label"] = labels
+    # Sauvegarde du jeu de données dans un fichier CSV
+    df.to_csv("biosensor_dataset.csv", index=False)
 
+
+    return df
+
+def load_data(path="biosensor_dataset.csv"):
+    """
+    Charge un fichier CSV contenant les données de biosenseur simulées.
+
+    Args:
+        path: chemin vers le fichier CSV à charger
+
+    Returns:
+        df: DataFrame contenant les données
+    """
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"Le fichier {path} est introuvable. Veuillez d'abord générer les données.")
+    
+    df = pd.read_csv(path)
     return df

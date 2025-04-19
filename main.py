@@ -1,10 +1,17 @@
 import matplotlib.pyplot as plt
-from data_generator import generate_data
+from data_generator import generate_data,load_data
 from mpl_toolkits.mplot3d import Axes3D  # nécessaire pour le support 3D
 from model import train_model
 import plotly.express as px
-# Génération du jeu de données synthétique
-df = generate_data()
+
+# Soit générer, soit charger les données
+use_existing_data = True  # on peut Changer à False si on veut forcer une régénération
+
+if use_existing_data:
+    df = load_data()
+else:
+    df = generate_data()
+    df.to_csv("biosensor_dataset.csv", index=False)
 
 # Sélection des variables explicatives (nutriments)
 X = df[["nutrient_A", "nutrient_B", "nutrient_C"]]
@@ -57,7 +64,7 @@ plt.savefig("3D_simulation_resultat.png", dpi=300)
 
 print("Graphique 3D enregistré dans '3D_simulation_resultat.png'")
 
-# Crée une figure 3D interactive avec Plotly
+# Creation d'une figure 3D interactive avec Plotly
 fig = px.scatter_3d(
     df,
     x="nutrient_A",
