@@ -1,10 +1,12 @@
 import numpy as np
 import pandas as pd
-from simulate import bacterial_response  # 🧠 Importation de la fonction centrale
+from simulate import bacterial_response  # Importation de la fonction centrale
 
 def generate_data(n_samples=200, noise=0.1):
     """
     Génère un jeu de données de milieux nutritifs et leur réponse bactérienne simulée.
+    response = a * A + b * B^2 + c * sin(C * π)
+
     """
     np.random.seed(42)
 
