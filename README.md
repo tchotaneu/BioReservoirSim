@@ -17,6 +17,7 @@ L’idée est de modéliser **la réponse phénotypique d’une bactérie à des
 
 ```
 BioReservoirSim/
+├── app.py                       # Lancer l'application localement avec streamlit 
 ├── 2D_simulation_result.png     # Visualisation 2D 
 ├── 3D_simulation_resultat.png   # Visualisation 3D 
 ├── biosensor_dataset.csv        # fichier de données sauvegardé 
