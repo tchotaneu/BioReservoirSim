@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from data_generator import generate_data
 from mpl_toolkits.mplot3d import Axes3D  # nécessaire pour le support 3D
 from model import train_model
-
+import plotly.express as px
 # Génération du jeu de données synthétique
 df = generate_data()
 
@@ -57,4 +57,21 @@ plt.savefig("3D_simulation_resultat.png", dpi=300)
 
 print("Graphique 3D enregistré dans '3D_simulation_resultat.png'")
 
+# Crée une figure 3D interactive avec Plotly
+fig = px.scatter_3d(
+    df,
+    x="nutrient_A",
+    y="nutrient_B",
+    z="response",
+    color="label",
+    color_continuous_scale="RdBu",
+    title="Bacterial Response - Interactive 3D View",
+    labels={"nutrient_A": "Nutrient A", "nutrient_B": "Nutrient B", "response": "Simulated Response"}
+)
 
+# Affiche la figure dans le navigateur
+fig.show()
+
+# Enregistrement du graphique en fichier html
+fig.write_html("interactive_3D_response.html")
+print("Graphique interactif enregistré dans 'interactive_3d_response.html'")
