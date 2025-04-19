@@ -60,19 +60,25 @@ python main.py
 
 ---
 
-##  Bibliothèques utilisées
+### 3. Interface Streamlit
 
-- `numpy`, `pandas`
-- `matplotlib`, `plotly`
-- `scikit-learn` (Random Forest)
-- `mpl_toolkits.mplot3d` (pour le 3D statique)
+Ce projet inclut une interface interactive développée avec [Streamlit](https://streamlit.io/), permettant de :
 
----
+- Régler le niveau de bruit biologique simulé,
+- Choisir le nombre d’échantillons,
+- Visualiser les réponses phénotypiques des bactéries simulées,
+- Afficher les performances du modèle de classification (Random Forest),
+- Explorer les données générées dynamiquement.
+
+### 4. Lancer l'application localement
+```bash
+streamlit run app.py
+```
 
 ##  Auteur
 
 **Giresse Tchotaneu**  
-Étudiant passionné par la bioinformatique, l’intelligence artificielle appliquée au vivant, et les systèmes hybrides vivants-computationnels.
+passionné par la bioinformatique, l’intelligence artificielle appliquée au vivant, et les systèmes hybrides .
 
 Contact : [giressetchotaneu@gmail.com]  
 GitHub : [https://github.com/tchotaneu](https://github.com/tchotaneu)
